@@ -5,11 +5,14 @@
  * @description Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 Symbol       Value
-I             1
-V             5
-X             10
+I             1         
+IVX iv = 4  ix = 9
+V             5         
+X             10        
+XLC xl = 40 xc = 90
 L             50
-C             100
+C             100      
+CDM cd = 400 cm = 900
 D             500
 M             1000
 For example, 2 is written as II in Roman numeral, just two one's added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
@@ -20,9 +23,6 @@ I can be placed before V (5) and X (10) to make 4 and 9.
 X can be placed before L (50) and C (100) to make 40 and 90. 
 C can be placed before D (500) and M (1000) to make 400 and 900.
 Given a roman numeral, convert it to an integer.
-
- 
-
 Example 1:
 
 Input: s = "III"
@@ -40,4 +40,40 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 
-const romanToInt = function (s) {};
+const romanToInt = function (s) {
+  const romanlet = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+  let sum = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "I" && s[i + 1] === "V") {
+      sum += 4;
+      i++;
+    } else if (s[i] === "I" && s[i + 1] === "X") {
+      sum += 9;
+      i++;
+    } else if (s[i] === "X" && s[i + 1] === "L") {
+      sum += 40;
+      i++;
+    } else if (s[i] === "X" && s[i + 1] === "C") {
+      sum += 90;
+      i++;
+    } else if (s[i] === "C" && s[i + 1] === "D") {
+      sum += 400;
+      i++;
+    } else if (s[i] === "C" && s[i + 1] === "M") {
+      sum += 900;
+      i++;
+    } else {
+      sum += romanlet[s[i]];
+    }
+  }
+  return sum;
+};
+module.exports = romanToInt;
