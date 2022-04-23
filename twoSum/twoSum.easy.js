@@ -32,7 +32,5 @@ const twoSum = function (nums, target) {
       if (nums[i] + nums[j] === target) return [i, j];
     }
   }
-  return 0;
 };
-console.log(twoSum([2, 3, 4], 6));
 module.exports = twoSum;

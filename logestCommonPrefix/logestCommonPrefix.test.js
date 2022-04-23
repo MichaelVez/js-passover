@@ -8,3 +8,6 @@ test("Example 1", () => {
 test("Example 2", () => {
   expect(longestCommonPrefix(["dog", "racecar", "car"])).toBe("");
 });
+test("Example 3", () => {
+  expect(longestCommonPrefix(["dog"])).toBe("dog");
+});

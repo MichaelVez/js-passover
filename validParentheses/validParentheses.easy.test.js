@@ -12,3 +12,9 @@ test("Example3", () => {
 test("Example4", () => {
   expect(isValid("[({})][()]")).toBe(true);
 });
+test("Example5", () => {
+  expect(isValid("){")).toBe(false);
+});
+test("Example6", () => {
+  expect(isValid("}")).toBe(false);
+});
